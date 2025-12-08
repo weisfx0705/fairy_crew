@@ -1,5 +1,5 @@
 
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import { Stepper } from './components/Stepper';
 import Page1_Roster from './components/Page1_Roster';
 import Page2_GenerateSkillForm from './components/Page2_GenerateSkillForm';
@@ -26,6 +26,20 @@ const App: React.FC = () => {
     const [finalAssignments, setFinalAssignments] = useState<FinalAssignment[]>([]);
     const [assignmentRationale, setAssignmentRationale] = useState<string>('');
     const [isSettingsOpen, setIsSettingsOpen] = useState(false);
+    const [hasApiKey, setHasApiKey] = useState(false);
+
+    useEffect(() => {
+        const checkApiKey = () => {
+            const key = localStorage.getItem('gemini_api_key');
+            setHasApiKey(!!key);
+        };
+
+        checkApiKey();
+        // Check when settings modal closes
+        if (!isSettingsOpen) {
+            checkApiKey();
+        }
+    }, [isSettingsOpen]);
 
     const totalPages = 7;
 
@@ -85,10 +99,22 @@ const App: React.FC = () => {
         <div className="min-h-screen bg-gray-900 text-white font-sans flex flex-col items-center p-4 sm:p-8 relative">
             <button
                 onClick={() => setIsSettingsOpen(true)}
-                className="absolute top-4 right-4 p-2 text-gray-400 hover:text-white transition-colors"
+                className="absolute top-4 right-4 p-2 text-gray-400 hover:text-white transition-colors relative group"
                 title="設定"
             >
                 <SettingsIcon className="w-6 h-6" />
+                {!hasApiKey && (
+                    <>
+                        <span className="absolute -top-1 -right-1 flex h-3 w-3">
+                            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
+                            <span className="relative inline-flex rounded-full h-3 w-3 bg-red-500"></span>
+                        </span>
+                        <div className="absolute right-10 top-1/2 -translate-y-1/2 w-max px-3 py-1 bg-red-500 text-white text-xs rounded shadow-lg animate-bounce hidden group-hover:block md:block">
+                            請設定 API Key
+                            <div className="absolute right-[-6px] top-1/2 -translate-y-1/2 border-y-4 border-y-transparent border-l-6 border-l-red-500"></div>
+                        </div>
+                    </>
+                )}
             </button>
 
             <SettingsModal isOpen={isSettingsOpen} onClose={() => setIsSettingsOpen(false)} />
