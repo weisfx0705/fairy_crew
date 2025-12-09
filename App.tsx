@@ -97,25 +97,28 @@ const App: React.FC = () => {
 
     return (
         <div className="min-h-screen bg-gray-900 text-white font-sans flex flex-col items-center p-4 sm:p-8 relative">
-            <button
-                onClick={() => setIsSettingsOpen(true)}
-                className="absolute top-4 right-4 p-2 text-gray-400 hover:text-white transition-colors relative group"
-                title="設定"
-            >
-                <SettingsIcon className="w-6 h-6" />
+            <div className="absolute top-4 right-4 z-10">
+                <button
+                    onClick={() => setIsSettingsOpen(true)}
+                    className="flex items-center gap-2 px-3 py-2 text-gray-400 hover:text-white transition-colors bg-gray-800/50 hover:bg-gray-700/50 rounded-lg border border-transparent hover:border-gray-600"
+                    title="設定"
+                >
+                    <SettingsIcon className="w-5 h-5" />
+                    <span className="text-sm font-medium">設置 API</span>
+                </button>
                 {!hasApiKey && (
-                    <>
-                        <span className="absolute -top-1 -right-1 flex h-3 w-3">
+                    <div className="absolute top-0 right-full mr-2 flex items-center h-full">
+                        <span className="relative flex h-3 w-3 mr-2">
                             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
                             <span className="relative inline-flex rounded-full h-3 w-3 bg-red-500"></span>
                         </span>
-                        <div className="absolute right-10 top-1/2 -translate-y-1/2 w-max px-3 py-1 bg-red-500 text-white text-xs rounded shadow-lg animate-bounce hidden group-hover:block md:block">
+                        <div className="bg-red-500 text-white text-xs px-2 py-1 rounded shadow-lg animate-bounce whitespace-nowrap">
                             請設定 API Key
                             <div className="absolute right-[-6px] top-1/2 -translate-y-1/2 border-y-4 border-y-transparent border-l-6 border-l-red-500"></div>
                         </div>
-                    </>
+                    </div>
                 )}
-            </button>
+            </div>
 
             <SettingsModal isOpen={isSettingsOpen} onClose={() => setIsSettingsOpen(false)} />
 

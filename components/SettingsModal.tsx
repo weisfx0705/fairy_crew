@@ -7,20 +7,16 @@ interface SettingsModalProps {
 
 export const SettingsModal: React.FC<SettingsModalProps> = ({ isOpen, onClose }) => {
     const [apiKey, setApiKey] = useState('');
-    const [model, setModel] = useState('gemini-1.5-flash');
 
     useEffect(() => {
         if (isOpen) {
             const storedKey = localStorage.getItem('gemini_api_key') || '';
-            const storedModel = localStorage.getItem('gemini_model') || 'gemini-1.5-flash';
             setApiKey(storedKey);
-            setModel(storedModel);
         }
     }, [isOpen]);
 
     const handleSave = () => {
         localStorage.setItem('gemini_api_key', apiKey);
-        localStorage.setItem('gemini_model', model);
         onClose();
     };
 
@@ -51,15 +47,9 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({ isOpen, onClose })
                     <label className="block text-sm font-medium text-gray-300 mb-1">
                         模型 (Model)
                     </label>
-                    <select
-                        value={model}
-                        onChange={(e) => setModel(e.target.value)}
-                        className="w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded-md text-white focus:outline-none focus:ring-2 focus:ring-cyan-500"
-                    >
-                        <option value="gemini-1.5-flash">Gemini 1.5 Flash (快速)</option>
-                        <option value="gemini-1.5-pro">Gemini 1.5 Pro (強大)</option>
-                        <option value="gemini-2.0-flash-exp">Gemini 2.0 Flash Exp (最新)</option>
-                    </select>
+                    <div className="w-full px-3 py-2 bg-gray-700/50 border border-gray-600 rounded-md text-gray-300">
+                        此服務應用 gemini-2.5-flash
+                    </div>
                 </div>
 
                 <div className="flex justify-end gap-3">

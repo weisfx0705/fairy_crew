@@ -10,7 +10,7 @@ const getClient = () => {
 };
 
 const getModelName = () => {
-    return localStorage.getItem('gemini_model') || 'gemini-1.5-flash';
+    return 'gemini-2.5-flash';
 };
 
 /**
