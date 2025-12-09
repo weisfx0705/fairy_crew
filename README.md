@@ -26,33 +26,7 @@
 -   **UI/Icons**: Tailwind CSS, Lucide React (Icons)
 -   **Charts**: Recharts
 
-## 💻 安裝與執行
 
-請確保您的環境已安裝 [Node.js](https://nodejs.org/)。
-
-1.  **複製專案**
-    ```bash
-    git clone [repository-url]
-    cd fairy_crew
-    ```
-
-2.  **安裝套件**
-    ```bash
-    npm install
-    # 或
-    yarn install
-    ```
-
-3.  **啟動開發伺服器**
-    ```bash
-    npm run dev
-    ```
-    啟動後，請在瀏覽器中開啟顯示的 Local URL (通常是 http://localhost:5173)。
-
-4.  **建置生產版本**
-    ```bash
-    npm run build
-    ```
 
 ## 👤 作者
 
