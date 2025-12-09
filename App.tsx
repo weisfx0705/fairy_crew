@@ -167,7 +167,6 @@ const App: React.FC = () => {
                     >
                         陳嘉暐製作
                     </a>
-                    （https://weisfx0705.github.io/chiawei/）
                 </p>
             </footer>
         </div>
