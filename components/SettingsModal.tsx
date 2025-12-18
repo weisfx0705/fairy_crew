@@ -48,7 +48,7 @@ export const SettingsModal: React.FC<SettingsModalProps> = ({ isOpen, onClose })
                         模型 (Model)
                     </label>
                     <div className="w-full px-3 py-2 bg-gray-700/50 border border-gray-600 rounded-md text-gray-300">
-                        此服務應用 gemini-2.5-flash
+                        此服務應用 gemini-3-flash-preview
                     </div>
                 </div>
 

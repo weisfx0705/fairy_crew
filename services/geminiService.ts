@@ -10,7 +10,7 @@ const getClient = () => {
 };
 
 const getModelName = () => {
-    return 'gemini-2.5-flash';
+    return 'gemini-3-flash-preview';
 };
 
 /**
