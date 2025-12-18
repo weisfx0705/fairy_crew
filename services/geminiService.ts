@@ -225,7 +225,25 @@ And two configuration objects:
 **Output Format:**
 Respond with a single JSON object. This object must have two keys: "assignments" and "rationale".
 - The "assignments" value should be an array of objects, where each object represents a project and has the following structure: { projectName: string, director: string, crew: [{ role: string, student: string }] }.
-- The "rationale" value should be a string in Traditional Chinese explaining the logic behind your assignments, highlighting key decisions or compromises.
+- The "rationale" value should be a string in **Traditional Chinese (繁體中文)**. This string must provide a **comprehensive and detailed logical narrative** of how the decision was made.
+
+**Requirements for the "rationale" (Evaluation Logic):**
+Please structure the "rationale" clearly with the following sections (use plain text with clear headings, no markdown symbols like ** or # inside the JSON string value):
+
+1. 【整體策略】(Overall Strategy)
+   - Briefly explain how you balanced the class's overall skills, preferences, and the director's needs.
+
+2. 【各組詳細分析】(Detailed Project Analysis)
+   - For EACH project, write a dedicated paragraph.
+   - Explain WHY specific key members were assigned. (e.g., "Assigned Student X to Camera because they rated themselves 9/10 and requested this Director.")
+   - Mention if the Director's preference was honored.
+
+3. 【折衝與權衡】(Conflicts and Resolutions)
+   - Explicitly mention any difficult choices. (e.g., "Student Y wanted Project A but was assigned to Project B because Project A was full, and Project B needed their sound expertise.")
+   - Be honest about any compromises made.
+
+4. 【未分配或特殊狀況】(Unassigned or Special Cases)
+   - If anyone is unassigned or if a role is left empty, explain why.
 
 **Here is the data:**
 Data A (Student Skills):

@@ -42,7 +42,7 @@ const Page7_Results: React.FC<Page7Props> = ({ assignments, rationale, onReset }
         return (
             <div className="text-center">
                 <p className="text-xl text-gray-400 mb-6">目前沒有分組結果。可能是分析失敗或尚未進行分析。</p>
-                 <button 
+                <button
                     onClick={onReset}
                     className="px-6 py-2 bg-cyan-600 text-white rounded-md hover:bg-cyan-500 transition-colors font-semibold"
                 >
@@ -54,12 +54,14 @@ const Page7_Results: React.FC<Page7Props> = ({ assignments, rationale, onReset }
 
     return (
         <div className="space-y-8">
-            <div className="p-6 bg-gray-900/50 rounded-lg">
-                <h3 className="flex items-center gap-2 text-xl font-semibold text-cyan-300 mb-3">
+            <div className="p-6 bg-gray-800/80 rounded-lg border border-cyan-900/30 shadow-sm">
+                <h3 className="flex items-center gap-2 text-xl font-semibold text-cyan-300 mb-4 border-b border-cyan-900/30 pb-2">
                     <SparklesIcon className="w-6 h-6" />
-                    AI 分配依據摘要
+                    AI 分配依據摘要與完整邏輯
                 </h3>
-                <p className="text-gray-300 whitespace-pre-wrap">{rationale}</p>
+                <div className="text-gray-200 whitespace-pre-wrap leading-relaxed text-base">
+                    {rationale}
+                </div>
             </div>
 
             <div>
@@ -90,7 +92,7 @@ const Page7_Results: React.FC<Page7Props> = ({ assignments, rationale, onReset }
                     <DownloadIcon className="w-5 h-5" />
                     下載分組結果
                 </button>
-                 <button 
+                <button
                     onClick={onReset}
                     className="w-full sm:w-auto px-6 py-3 bg-cyan-700 text-white rounded-md hover:bg-cyan-600 transition-colors font-semibold"
                 >
